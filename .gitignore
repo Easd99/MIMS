@@ -3,6 +3,14 @@
 /node_modules
 /build
 
+#users-back
+/users-back/node_modules
+/users-back/dist
+/users-back/build
+/users-back/.idea
+/users-back/generated
+/users-back/.env
+
 # Logs
 logs
 *.log
