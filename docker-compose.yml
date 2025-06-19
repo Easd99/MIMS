@@ -1,0 +1,50 @@
+version: '3.8'
+services:
+  mims_users_back:
+    container_name: mims_users_back
+    build: /users-back
+    restart: always
+    depends_on:
+      - postgres_db
+      - nats
+    env_file:
+      - /users-back/docker.env
+    ports:
+      - "5000:5000"
+  mims_orders_back:
+    container_name: mims_orders_back
+    build: /orders-back
+    restart: always
+    depends_on:
+      - postgres_db
+      - nats
+    env_file:
+      - /orders-back/docker.env
+    ports:
+      - "5001:5001"
+  postgres_db:
+    container_name: postgres_db
+    image: postgres
+    ports:
+      - "4561:5432"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "Bv{-jqW{&L23dMkJ5N"
+      POSTGRES_DB: "postgres"
+    volumes:
+      - /init:/docker-entrypoint-initdb.d
+  nats:
+    image: nats:latest
+    container_name: nats
+    ports:
+      - "4222:4222"     # Cliente NATS
+    restart: unless-stopped
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "80:80"
+    depends_on:
+      - mims_users_back
+      - mims_orders_back
