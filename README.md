@@ -2,8 +2,8 @@
 
 Este proyecto está basado en **NestJS** y utiliza **Prisma ORM** con una base de datos **PostgreSQL**. La arquitectura se compone de dos microservicios independientes:
 
-- 🧑 **Users Service**
-- 📦 **Orders Service**
+- 🧑 **Users Service** – Disponible en [http://localhost:5000](http://localhost:5000)
+- 📦 **Orders Service** – Disponible en [http://localhost:5001](http://localhost:5001)
 
 ## 🚀 Características
 
