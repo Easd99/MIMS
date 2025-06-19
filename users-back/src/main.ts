@@ -26,7 +26,7 @@ async function bootstrap() {
 
   app.connectMicroservice({
     transport: Transport.NATS,
-    options: { servers: ['nats://localhost:4222'] },
+    options: { servers: [`${process.env.NATS_URL}`] },
   });
   await app.startAllMicroservices();
 

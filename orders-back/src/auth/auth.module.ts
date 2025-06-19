@@ -4,6 +4,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from './jwt.strategy';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ClientsModule, Transport } from '@nestjs/microservices';
+import * as process from 'node:process';
 
 @Module({
   imports: [
@@ -21,7 +22,7 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
         name: 'USERS_SERVICE',
         transport: Transport.NATS,
         options: {
-          servers: ['nats://localhost:4222'],
+          servers: [`${process.env.NATS_URL}`],
         },
       },
     ]),

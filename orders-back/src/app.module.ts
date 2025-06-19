@@ -6,7 +6,7 @@ import { OrdersModule } from './orders/orders.module';
 import { OrderItemModule } from './order-item/order-item.module';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { AuthModule } from './auth/auth.module';
-
+import * as process from 'node:process';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -17,7 +17,7 @@ import { AuthModule } from './auth/auth.module';
       {
         name: 'USERS_SERVICE',
         transport: Transport.NATS,
-        options: { servers: ['nats://localhost:4222'] },
+        options: { servers: [`${process.env.NATS_URL}`] },
       },
     ]),
     PrismaModule,

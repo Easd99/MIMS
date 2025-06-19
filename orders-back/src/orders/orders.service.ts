@@ -4,7 +4,7 @@ import { UpdateOrderDto } from './dto/update-order.dto';
 import { ClientProxy } from '@nestjs/microservices';
 import { lastValueFrom } from 'rxjs';
 import { ResponseUserDto } from '../users/dto/response-user.dto';
-import { Order, OrderItem } from '../../generated/prisma';
+import { Order, OrderItem } from '@prisma/client';
 import { OrderItemService } from '../order-item/order-item.service';
 import { PrismaService } from '../prisma/prisma.service';
 import { FilterOrderDto } from './dto/filter-order.dto';

@@ -5,7 +5,7 @@ import {
 } from '@nestjs/common';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { PrismaService } from '../prisma/prisma.service';
-import { User } from '../../generated/prisma';
+import { User } from '@prisma/client';
 import { FilterUserDto } from './dto/filter-user.dto';
 import { ResponseUserDto } from './dto/response-user.dto';
 import * as bcrypt from 'bcryptjs';

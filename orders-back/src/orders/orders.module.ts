@@ -4,6 +4,7 @@ import { OrdersController } from './orders.controller';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { PrismaModule } from '../prisma/prisma.module';
 import { OrderItemModule } from '../order-item/order-item.module';
+import * as process from 'node:process';
 
 @Module({
   controllers: [OrdersController],
@@ -15,7 +16,7 @@ import { OrderItemModule } from '../order-item/order-item.module';
         name: 'USERS_SERVICE',
         transport: Transport.NATS,
         options: {
-          servers: ['nats://localhost:4222'],
+          servers: [`${process.env.NATS_URL}`],
         },
       },
     ]),
