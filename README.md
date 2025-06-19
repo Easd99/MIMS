@@ -76,3 +76,13 @@ NATS_URL=               # URL de conexión al servidor NATS
 
 - Docker y Docker Compose
 - Node.js (si deseas ejecutar localmente sin Docker)
+
+## 🧪 Pruebas End-to-End (E2E)
+
+El proyecto incluye pruebas end-to-end utilizando [Jest](https://jestjs.io/) y [Supertest](https://github.com/visionmedia/supertest) para verificar el comportamiento completo de los endpoints.
+
+Para ejecutar las pruebas E2E, asegurate de ir a la carpeta del microservicio correspondiente (`orders-back` o `users-back`) y luego ejecuta:
+### Ejecutar pruebas E2E
+```bash
+npm run test:e2e
+```
