@@ -1,13 +1,10 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { ValidationPipe, VersioningType } from '@nestjs/common';
 import * as process from 'node:process';
-import { Transport } from '@nestjs/microservices';
+import { ValidationPipe, VersioningType } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
-  // app.enableCors();
 
   app.setGlobalPrefix('api');
 
@@ -23,12 +20,6 @@ async function bootstrap() {
       transform: true,
     }),
   );
-
-  app.connectMicroservice({
-    transport: Transport.NATS,
-    options: { servers: [`${process.env.NATS_URL}`] },
-  });
-  await app.startAllMicroservices();
 
   await app.listen(process.env.PORT || 5000);
 }

@@ -4,12 +4,12 @@
 /build
 
 #users-back
-/users-back/node_modules
-/users-back/dist
-/users-back/build
-/users-back/.idea
-/users-back/generated
-/users-back/.env
+*/node_modules
+*/dist
+*/build
+*/.idea
+*/generated
+*/.env
 
 # Logs
 logs
