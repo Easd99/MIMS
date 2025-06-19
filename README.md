@@ -5,6 +5,12 @@ Este proyecto está basado en **NestJS** y utiliza **Prisma ORM** con una base d
 - 🧑 **Users Service** – Disponible en [http://localhost:5000](http://localhost:5000)
 - 📦 **Orders Service** – Disponible en [http://localhost:5001](http://localhost:5001)
 
+Además, se ha configurado un servidor **NGINX** para servir como reverse proxy. Esto permite que las peticiones a los microservicios se canalicen a través del puerto estándar **:80**:
+
+Ejemplo:
+- `http://localhost/api/v1/users` → Users Service
+- `http://localhost/api/v1/orders` → Orders Service
+
 ## 🚀 Características
 
 - ⚙️ Backend en NestJS
@@ -76,3 +82,13 @@ NATS_URL=               # URL de conexión al servidor NATS
 
 - Docker y Docker Compose
 - Node.js (si deseas ejecutar localmente sin Docker)
+
+## 🧪 Pruebas End-to-End (E2E)
+
+El proyecto incluye pruebas end-to-end utilizando [Jest](https://jestjs.io/) y [Supertest](https://github.com/visionmedia/supertest) para verificar el comportamiento completo de los endpoints.
+
+Para ejecutar las pruebas E2E, asegurate de ir a la carpeta del microservicio correspondiente (`orders-back` o `users-back`) y luego ejecuta:
+### Ejecutar pruebas E2E
+```bash
+npm run test:e2e
+```
