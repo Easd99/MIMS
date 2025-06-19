@@ -39,3 +39,12 @@ services:
     ports:
       - "4222:4222"     # Cliente NATS
     restart: unless-stopped
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "80:80"
+    depends_on:
+      - mims_users_back
+      - mims_orders_back
