@@ -55,7 +55,7 @@ Estas variables deben configurarse en un archivo `.env` o dentro del `docker-com
 DATABASE_URL=           # URL de conexión a la base de datos PostgreSQL
 PORT=                   # Puerto en el que se ejecuta cada microservicio
 JWT_SECRET=             # Secreto para firmar tokens JWT
-NATS_URL=               # URL de conexión al servidor NATS (si aplica)
+NATS_URL=               # URL de conexión al servidor NATS
 ```
 
 ---
