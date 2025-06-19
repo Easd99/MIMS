@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe, VersioningType } from '@nestjs/common';
 import * as process from 'node:process';
+import { Transport } from '@nestjs/microservices';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -22,6 +23,12 @@ async function bootstrap() {
       transform: true,
     }),
   );
+
+  app.connectMicroservice({
+    transport: Transport.NATS,
+    options: { servers: ['nats://localhost:4222'] },
+  });
+  await app.startAllMicroservices();
 
   await app.listen(process.env.PORT || 5000);
 }
