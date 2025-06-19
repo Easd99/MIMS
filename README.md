@@ -27,7 +27,23 @@ Ejemplo:
 
 ## 🐳 Instalación con Docker
 
-Este proyecto está preparado para ejecutarse fácilmente con **Docker Compose**. Solo necesitas:
+Este proyecto está preparado para ejecutarse fácilmente con **Docker Compose**.
+
+### 🔧 Pasos de ejecución
+
+1. Clona el repositorio:
+
+```bash
+git clone https://github.com/Easd99/MIMS.git
+```
+
+2. Ingresa a la carpeta del proyecto:
+
+```bash
+cd MIMS
+```
+
+3. Levanta los servicios:
 
 ```bash
 docker-compose up --build
@@ -39,6 +55,7 @@ Esto se encargará de:
 - Crear la base de datos PostgreSQL
 - Aplicar migraciones
 - Ejecutar la seed inicial de productos
+- Levantar el servidor NGINX como gateway en el puerto :80
 
 ---
 
