@@ -5,6 +5,12 @@ Este proyecto está basado en **NestJS** y utiliza **Prisma ORM** con una base d
 - 🧑 **Users Service** – Disponible en [http://localhost:5000](http://localhost:5000)
 - 📦 **Orders Service** – Disponible en [http://localhost:5001](http://localhost:5001)
 
+Además, se ha configurado un servidor **NGINX** para servir como reverse proxy. Esto permite que las peticiones a los microservicios se canalicen a través del puerto estándar **:80**:
+
+Ejemplo:
+- `http://localhost/api/v1/users` → Users Service
+- `http://localhost/api/v1/orders` → Orders Service
+
 ## 🚀 Características
 
 - ⚙️ Backend en NestJS
